@@ -1,0 +1,230 @@
+object Form1: TForm1
+  Left = 241
+  Height = 581
+  Top = 92
+  Width = 640
+  Caption = 'TurboWieszcz++'
+  ClientHeight = 581
+  ClientWidth = 640
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '1.8.2.0'
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 21
+    Top = 0
+    Width = 640
+    AutoSize = True
+    ButtonHeight = 21
+    ButtonWidth = 49
+    EdgeBorders = [ebTop, ebBottom]
+    EdgeInner = esNone
+    EdgeOuter = esNone
+    Flat = False
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    Indent = 2
+    List = True
+    ParentFont = False
+    ParentShowHint = False
+    ShowCaptions = True
+    ShowHint = True
+    TabOrder = 0
+    TabStop = True
+    Wrapable = False
+    object TBnNew: TToolButton
+      Left = 2
+      Hint = 'Generuj nowy wiersz'
+      Top = 0
+      Caption = '&Nowy'
+      ImageIndex = 1
+      OnClick = TBnNewClick
+    end
+    object TBnDec: TToolButton
+      Left = 173
+      Hint = 'Mniej zwrotek'
+      Top = 0
+      Caption = '&<<'
+      ImageIndex = 2
+      OnClick = TBnDecClick
+    end
+    object TBnInc: TToolButton
+      Left = 322
+      Hint = 'Więcej zwrotek'
+      Top = 0
+      Caption = '&>>'
+      ImageIndex = 3
+      OnClick = TBnIncClick
+    end
+    object TBnSave: TToolButton
+      Left = 112
+      Hint = 'Zapisz'
+      Top = 0
+      Caption = 'Zapi&sz'
+      DropdownMenu = PopupMenuSave
+      ImageIndex = 5
+      OnClick = TBnSaveClick
+      Style = tbsDropDown
+    end
+    object TBnX: TToolButton
+      Left = 51
+      Hint = 'Opcje'
+      Top = 0
+      Caption = 'Opcje'
+      DropdownMenu = Popup1
+      ImageIndex = 0
+      OnClick = TBnXClick
+      Style = tbsDropDown
+    end
+    object TBnA: TToolButton
+      Left = 371
+      Hint = 'O programie...'
+      Top = 0
+      Caption = '&O...'
+      ImageIndex = 4
+      OnClick = TBnAClick
+    end
+    object Panel1: TPanel
+      Left = 222
+      Height = 21
+      Top = 0
+      Width = 100
+      Caption = '0'
+      TabOrder = 0
+    end
+  end
+  object SaveDlg1: TSaveDialog
+    Title = 'Zapisz...'
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofPathMustExist, ofEnableSizing]
+    left = 32
+    top = 208
+  end
+  object Popup1: TPopupMenu
+    left = 104
+    top = 208
+    object Czcionka1: TMenuItem
+      Caption = 'Czcionka...'
+      GroupIndex = 1
+      RadioItem = True
+      OnClick = Czcionka1Click
+    end
+    object N1: TMenuItem
+      Caption = '-'
+      GroupIndex = 1
+      RadioItem = True
+    end
+    object Powt1: TMenuItem
+      Caption = 'Powtórzenia O&K'
+      GroupIndex = 1
+      RadioItem = True
+      OnClick = Powt1Click
+    end
+    object N3: TMenuItem
+      Caption = '-'
+      GroupIndex = 1
+      RadioItem = True
+    end
+    object trybABAB: TMenuItem
+      Caption = 'Rym ABAB'
+      GroupIndex = 1
+      RadioItem = True
+      OnClick = trybABABClick
+    end
+    object trybABBA: TMenuItem
+      Caption = 'Rym ABBA'
+      GroupIndex = 1
+      RadioItem = True
+      OnClick = trybABBAClick
+    end
+    object trybAABB: TMenuItem
+      Caption = 'Rym AABB'
+      GroupIndex = 1
+      RadioItem = True
+      OnClick = trybAABBClick
+    end
+    object N2: TMenuItem
+      Caption = '-'
+      GroupIndex = 1
+    end
+    object Polskieznaki1: TMenuItem
+      Caption = 'Polskie znaki'
+      GroupIndex = 2
+      RadioItem = True
+      OnClick = Polskieznaki1Click
+    end
+    object Bezpolskichznakw1: TMenuItem
+      Caption = 'Bez polskich znaków'
+      GroupIndex = 2
+      RadioItem = True
+      OnClick = Bezpolskichznakw1Click
+    end
+    object N4: TMenuItem
+      Caption = '-'
+      GroupIndex = 2
+    end
+    object Automat1: TMenuItem
+      Caption = 'Automat...'
+      GroupIndex = 3
+      OnClick = Automat1Click
+    end
+    object N5: TMenuItem
+      Caption = '-'
+      GroupIndex = 3
+    end
+    object Wczytajdane1: TMenuItem
+      Caption = 'Wczytaj dane z XML...'
+      GroupIndex = 3
+      OnClick = Wczytajdane1Click
+    end
+  end
+  object FontDlg1: TFontDialog
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    MinFontSize = 0
+    MaxFontSize = 0
+    left = 32
+    top = 272
+  end
+  object PopupMenuSave: TPopupMenu
+    left = 104
+    top = 272
+    object JakoRTF1: TMenuItem
+      Caption = 'Tekst jako RTF'
+      OnClick = JakoRTF1Click
+    end
+    object JakoBMP1: TMenuItem
+      Caption = 'Obrazek jako BMP'
+      OnClick = JakoBMP1Click
+    end
+    object JakoJGP1: TMenuItem
+      Caption = 'Obrazek jako JPG'
+      OnClick = JakoJGP1Click
+    end
+    object JakoPNG1: TMenuItem
+      Caption = 'Obrazek jako PNG'
+      OnClick = JakoPNG1Click
+    end
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 25000
+    OnTimer = Timer1Timer
+    left = 104
+    top = 144
+  end
+  object OpenDialog1: TOpenDialog
+    DefaultExt = '.xml'
+    FileName = 'dane.xml'
+    Filter = 'Pliki XML (*.xml)|*.xml'
+    left = 32
+    top = 144
+  end
+end
