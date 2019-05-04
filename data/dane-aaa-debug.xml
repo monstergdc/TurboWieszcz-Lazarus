@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<wieszcz>
+
+<tytul>
+	<dane>Test</dane>
+</tytul>
+
+<wers1>
+	<dane>1-1</dane>
+</wers1>
+
+<wers2>
+	<dane>Wszystko tu świeci</dane>
+	<dane>Tam ptaszek leci</dane>
+	<dane>Nie masz nic przeciw</dane>
+	<dane>Tu ptaszek leci</dane>
+</wers2>
+
+<wers3>
+	<dane>Śmiej się upojnie</dane>
+	<dane>Ciesz się dostojnie</dane>
+	<dane>Usiądź spokojnie</dane>
+	<dane>Bądź przeciw wojnie</dane>
+</wers3>
+
+<wers4>
+	<dane>Śmieją się dzieci</dane>
+	<dane>Cieszą się dzieci</dane>
+	<dane>I księżyc świeci</dane>
+	<dane>I słońce świeci</dane>
+</wers4>
+
+</wieszcz>

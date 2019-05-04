@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<wieszcz>
+
+<tytul>
+	<dane>1</dane>
+	<dane>2</dane>
+</tytul>
+
+<wers1>
+	<dane>w1 1</dane>
+	<dane>w1 2</dane>
+	<dane>w1 3</dane>
+	<dane>w1 4</dane>
+	<dane>w1 5</dane>
+</wers1>
+
+<wers2>
+	<dane>w2 1</dane>
+	<dane>w2 2</dane>
+	<dane>w2 3</dane>
+	<dane>w2 4</dane>
+</wers2>
+
+<wers3>
+	<dane>w3 1</dane>
+	<dane>w3 2</dane>
+	<dane>w3 3</dane>
+	<dane>w3 4</dane>
+	<dane>w3 5</dane>
+	<dane>w3 6</dane>
+	<dane>w3 7</dane>
+</wers3>
+
+<wers4>
+	<dane>w4 1</dane>
+	<dane>w4 2</dane>
+	<dane>w4 3</dane>
+	<dane>w4 4</dane>
+</wers4>
+
+</wieszcz>
