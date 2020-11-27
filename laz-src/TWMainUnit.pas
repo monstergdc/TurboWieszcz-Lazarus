@@ -3,11 +3,11 @@
 {$mode objfpc}{$H+}
 
 ///////////////////////////////////////////////////////////////////////////////
-// TurboWieszcz++ for Windows/Linux/WinCE/RaspberryPI (PL), v2.0.2.5 Lazarus
+// TurboWieszcz++ for Windows/Linux/WinCE/RaspberryPI/Darwin (PL), v2.0.2.5 Lazarus
 // (c)2011-2020 Noniewicz.com, Jakub Noniewicz aka MoNsTeR/GDC
 // FREEWARE
 // last FPC used: 3.0.4 (Win), 3.0.0 (Linux Debian), 2.6.4 (Raspberry PI)
-// 3.0.0 (winCE)
+// 3.0.0 (winCE), ? (Darwin)
 ///////////////////////////////////////////////////////////////////////////////
 // based directly on:
 // previous version written for Commodore C-64 sometime in 1993
@@ -52,14 +52,15 @@
 //update: 20180410 2335-0000 = 25
 //update: 20180411 0000-0045 = 45
 //---
-//update: 20201127 2245-2250 = ?
+//update: 20201127 2245-2325 = 40 (Darwin try #1)
 
 //note: old custom opts (after conversion) were:
 //-dBorland -dVer150 -dDelphi7 -dCompiler6_Up -dPUREPASCAL
 //now less, some were bad!
-//note: richmemo package is required (win32/linux)
+//note: richmemo package is required (Win32/Linux/Darwin)
 //http://wiki.freepascal.org/RichMemo#Installation
 //note: RaspberryPi / Linux - needs gtk2
+//note: Darwin - needs Cocoa
 //note: RPI icon: file in home Desktop
 (*
 [Desktop Entry]
