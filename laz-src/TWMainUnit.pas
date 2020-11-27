@@ -458,7 +458,7 @@ begin
            'Platforma: ' + {$i %FPCTARGETOS%} + '/' + {$i %FPCTARGETCPU%} +
            ', FPC: ' + {$I %FPCVERSION%}+ CRLF+
            ''+CRLF+
-           '(c)2011-2018 Noniewicz.com, Jakub Noniewicz aka MoNsTeR/GDC'+CRLF;
+           '(c)2011-2020 Noniewicz.com, Jakub Noniewicz aka MoNsTeR/GDC'+CRLF;
   s := s + 'http://www.noniewicz.com/'+CRLF;
   s := s + 'Dodatkowe strofy (c): Grych, Freeak, Monster, Fred i Marek Pampuch.'+CRLF;
   s := s + ''+CRLF;
