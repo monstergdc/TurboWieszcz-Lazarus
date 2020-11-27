@@ -29,7 +29,7 @@
     <MacroValues Count="1">
       <Macro1 Name="LCLWidgetType" Value="win32"/>
     </MacroValues>
-    <BuildModes Count="3">
+    <BuildModes Count="4">
       <Item1 Name="win32" Default="True"/>
       <Item2 Name="WinCE">
         <MacroValues Count="1">
@@ -124,10 +124,57 @@
           </Other>
         </CompilerOptions>
       </Item3>
-      <SharedMatrixOptions Count="3">
+      <Item4 Name="darwin">
+        <MacroValues Count="1">
+          <Macro4 Name="LCLWidgetType" Value="cocoa"/>
+        </MacroValues>
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="TurboWieszcz-$(TargetCPU)-$(TargetOS)"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <SyntaxMode Value="Delphi"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <Checks>
+              <RangeChecks Value="True"/>
+              <OverflowChecks Value="True"/>
+              <StackChecks Value="True"/>
+            </Checks>
+            <TargetOS Value="darwin"/>
+            <Optimizations>
+              <OptimizationLevel Value="3"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+              <StripSymbols Value="True"/>
+            </Debugging>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
+          </Linking>
+          <Other>
+            <CustomOptions Value="-dVer150 -dCompiler6_Up -dPUREPASCAL"/>
+          </Other>
+        </CompilerOptions>
+      </Item4>
+      <SharedMatrixOptions Count="4">
         <Item1 ID="832003803772" Modes="win32" Type="IDEMacro" MacroName="LCLWidgetType" Value="win32"/>
         <Item2 ID="310222407305" Modes="WinCE" Type="IDEMacro" MacroName="LCLWidgetType" Value="wince"/>
         <Item3 ID="036470851845" Modes="linux" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk2"/>
+        <Item4 ID="538270653159" Modes="darwin" Type="IDEMacro" MacroName="LCLWidgetType" Value="cocoa"/>
       </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>
@@ -154,7 +201,7 @@
       <Unit1>
         <Filename Value="TWMainUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form1"/>
+        <ComponentName Value="FormTW"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit1>

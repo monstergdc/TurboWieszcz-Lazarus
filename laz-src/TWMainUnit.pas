@@ -4,7 +4,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 // TurboWieszcz++ for Windows/Linux/WinCE/RaspberryPI (PL), v2.0.2.5 Lazarus
-// (c)2011-2018 Noniewicz.com, Jakub Noniewicz aka MoNsTeR/GDC
+// (c)2011-2020 Noniewicz.com, Jakub Noniewicz aka MoNsTeR/GDC
 // FREEWARE
 // last FPC used: 3.0.4 (Win), 3.0.0 (Linux Debian), 2.6.4 (Raspberry PI)
 // 3.0.0 (winCE)
@@ -51,6 +51,8 @@
 //update: 20180410 2130-2300 = 90
 //update: 20180410 2335-0000 = 25
 //update: 20180411 0000-0045 = 45
+//---
+//update: 20201127 2245-2250 = ?
 
 //note: old custom opts (after conversion) were:
 //-dBorland -dVer150 -dDelphi7 -dCompiler6_Up -dPUREPASCAL
@@ -146,9 +148,9 @@ uses
 type
   TTryb = (ABAB, ABBA, AABB);
 
-  { TForm1 }
+  { TFormTW }
 
-  TForm1 = class(TForm)
+  TFormTW = class(TForm)
     JakoPNG1: TMenuItem;
     Panel1: TPanel;
     ToolBar1: TToolBar;
@@ -249,7 +251,7 @@ type
   end;
 
 var
-  Form1: TForm1;
+  FormTW: TFormTW;
 
 implementation
 
@@ -382,7 +384,7 @@ end;
 
 //---
 
-procedure TForm1.CreateMemo;
+procedure TFormTW.CreateMemo;
 begin
   {$IFDEF WINCE}
   RichEdit1 := TMemo.Create(self);
@@ -426,22 +428,22 @@ end;
 
 //---
 
-procedure TForm1.TBnNewClick(Sender: TObject);
+procedure TFormTW.TBnNewClick(Sender: TObject);
 begin
   Generuj(true);
 end; { TBnNewClick }
 
-procedure TForm1.TBnDecClick(Sender: TObject);
+procedure TFormTW.TBnDecClick(Sender: TObject);
 begin
   DecIle;
 end; { TBnDecClick }
 
-procedure TForm1.TBnIncClick(Sender: TObject);
+procedure TFormTW.TBnIncClick(Sender: TObject);
 begin
   IncIle;
 end; { TBnIncClick }
 
-procedure TForm1.TBnAClick(Sender: TObject);
+procedure TFormTW.TBnAClick(Sender: TObject);
 var s: string;
 begin
   RichEdit1.Clear;
@@ -493,7 +495,7 @@ begin
   RichEdit1.SelStart := 0;
 end; { TBnAClick }
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TFormTW.FormCreate(Sender: TObject);
 var say: string;
 begin
   say := MANTRA;
@@ -529,7 +531,7 @@ begin
   Init;
 end; { FormCreate }
 
-procedure TForm1.SubInit;
+procedure TFormTW.SubInit;
 var i: integer;
 begin
   for i := 0 to 3 do setlength(data[i], currentLimit);
@@ -545,7 +547,7 @@ begin
   setlength(titles, titleLimit);
 end; { SubInit }
 
-procedure TForm1.Init;
+procedure TFormTW.Init;
 var i: integer;
 begin
   currentLimit := XLIMIT;
@@ -725,14 +727,14 @@ begin
 
 end; { Init }
 
-procedure TForm1.FormShow(Sender: TObject);
+procedure TFormTW.FormShow(Sender: TObject);
 begin
   Panel1.Font.Color := RGB(224, 110, 0);
   ShowIle;
   Generuj(true);
 end; { FormShow }
 
-function TForm1.Koniec(z, w: integer; s: string): string;
+function TFormTW.Koniec(z, w: integer; s: string): string;
 var chk: boolean;
 begin
   chk := true;
@@ -744,14 +746,14 @@ begin
   if (w = 3) and chk then result := ENDINGS1[ending[1][z]];
 end; { Koniec }
 
-function TForm1.Strofa(z, w, w0: integer): string;
+function TFormTW.Strofa(z, w, w0: integer): string;
 var s: string;
 begin
   s := data[w][numer[w, z]];
   result := ' '+s+Koniec(z, w0, s)+CRLF;  //tu byl crash?
 end; { Strofa }
 
-function TForm1.Zwrotka(z: integer): string;
+function TFormTW.Zwrotka(z: integer): string;
 begin
   result := Strofa(z, TRYB2ORDER[tryb][0], 0)+
             Strofa(z, TRYB2ORDER[tryb][1], 1)+
@@ -759,35 +761,35 @@ begin
             Strofa(z, TRYB2ORDER[tryb][3], 3);
 end; { Zwrotka }
 
-procedure TForm1.Timer1Timer(Sender: TObject);
+procedure TFormTW.Timer1Timer(Sender: TObject);
 begin
   Generuj(true);
 end; { Timer1Timer }
 
-function TForm1.Title: string;
+function TFormTW.Title: string;
 begin
   result := ' ' + titles[title_id];
 end; { Title }
 
-procedure TForm1.trybAABBClick(Sender: TObject);
+procedure TFormTW.trybAABBClick(Sender: TObject);
 begin
   trybAABB.Checked := true;
   tryb := AABB;
 end; { trybAABBClick }
 
-procedure TForm1.trybABABClick(Sender: TObject);
+procedure TFormTW.trybABABClick(Sender: TObject);
 begin
   trybABAB.Checked := true;
   tryb := ABAB;
 end; { trybABABClick }
 
-procedure TForm1.trybABBAClick(Sender: TObject);
+procedure TFormTW.trybABBAClick(Sender: TObject);
 begin
   trybABBA.Checked := true;
   tryb := ABBA;
 end; { trybABBAClick }
 
-procedure TForm1.Generuj(nowy: boolean);
+procedure TFormTW.Generuj(nowy: boolean);
 var fs, z, w: integer;
 begin
   RichEdit1.Clear;
@@ -839,12 +841,12 @@ begin
 *)
 end; { Generuj }
 
-procedure TForm1.ShowIle;
+procedure TFormTW.ShowIle;
 begin
   Panel1.Caption := 'Zwrotek: ' + inttostr(ile) + ' ';
 end; { ShowIle }
 
-procedure TForm1.Czcionka1Click(Sender: TObject);
+procedure TFormTW.Czcionka1Click(Sender: TObject);
 begin
   FontDlg1.Font.Assign(RichEdit1.Font);
   if FontDlg1.Execute then
@@ -855,42 +857,42 @@ begin
   end;
 end; { Czcionka1Click }
 
-procedure TForm1.DecIle;
+procedure TFormTW.DecIle;
 begin
   dec(ile);
   if (ile = 0) then ile := 1;
   ShowIle;
 end; { DecIle }
 
-procedure TForm1.IncIle;
+procedure TFormTW.IncIle;
 begin
   inc(ile);
   if (ile = currentLimit) then ile := currentLimit-1;
   ShowIle;
 end; { IncIle }
 
-procedure TForm1.JakoBMP1Click(Sender: TObject);
+procedure TFormTW.JakoBMP1Click(Sender: TObject);
 begin
   {$IFDEF WIN32}
   PaintAndSaveToBmp;
   {$ENDIF}
 end; { JakoBMP1Click }
 
-procedure TForm1.JakoJGP1Click(Sender: TObject);
+procedure TFormTW.JakoJGP1Click(Sender: TObject);
 begin
   {$IFDEF WIN32}
   PaintAndSaveToJpg;
   {$ENDIF}
 end; { JakoJGP1Click }
 
-procedure TForm1.JakoPNG1Click(Sender: TObject);
+procedure TFormTW.JakoPNG1Click(Sender: TObject);
 begin
   {$IFDEF WIN32}
   PaintAndSaveToPng;
   {$ENDIF}
 end;
 
-procedure TForm1.JakoRTF1Click(Sender: TObject);
+procedure TFormTW.JakoRTF1Click(Sender: TObject);
 begin
   SaveDlg1.FileName := DFLT_FILE;
   SaveDlg1.DefaultExt := 'rtf';
@@ -904,48 +906,48 @@ begin
   end;
 end; { JakoRTF1Click }
 
-procedure TForm1.Polskieznaki1Click(Sender: TObject);
+procedure TFormTW.Polskieznaki1Click(Sender: TObject);
 begin
   Polskieznaki1.Checked := true;
   nopl := false;
   Generuj(false);  
 end; { Polskieznaki1Click }
 
-procedure TForm1.Powt1Click(Sender: TObject);
+procedure TFormTW.Powt1Click(Sender: TObject);
 begin
   Powt1.Checked := not Powt1.Checked;
   powtorzeniaOk := Powt1.Checked;  //consistency?
 end; { Powt1Click }
 
-procedure TForm1.TBnSaveClick(Sender: TObject);
+procedure TFormTW.TBnSaveClick(Sender: TObject);
 var p: TPoint;
 begin
   p := TBnSave.ClientToScreen(point(0, 0));
   TBnSave.DropdownMenu.Popup(p.x, p.y + TBnSave.Height);
 end;
 
-procedure TForm1.TBnXClick(Sender: TObject);
+procedure TFormTW.TBnXClick(Sender: TObject);
 var p: TPoint;
 begin
   p := TBnX.ClientToScreen(point(0, 0));
   TBnX.DropdownMenu.Popup(p.x, p.y + TBnX.Height);
 end;
 
-procedure TForm1.Automat1Click(Sender: TObject);
+procedure TFormTW.Automat1Click(Sender: TObject);
 begin
   Timer1.Interval := AUTO_TIMER;
   Timer1.Enabled := not Timer1.Enabled;
   Automat1.Checked := not Automat1.Checked;
 end; { Automat1Click }
 
-procedure TForm1.Bezpolskichznakw1Click(Sender: TObject);
+procedure TFormTW.Bezpolskichznakw1Click(Sender: TObject);
 begin
   Bezpolskichznakw1.Checked := true;
   nopl := true;
   Generuj(false);
 end; { Bezpolskichznakw1Click }
 
-function TForm1.checkUniqOK(z, w, value: integer): boolean;
+function TFormTW.checkUniqOK(z, w, value: integer): boolean;
 var i: integer;
     r: boolean;
 begin
@@ -956,14 +958,14 @@ begin
   result := r;
 end; { checkUniqOK }
 
-procedure TForm1.setrndrow(z, w: integer);
+procedure TFormTW.setrndrow(z, w: integer);
 begin
   repeat
     numer[w][z] := random(currentLimit);
   until (z = 0) or checkUniqOK(z, w, numer[w][z]);
 end; { setrndrow }
 
-procedure TForm1.Wczytajdane1Click(Sender: TObject);
+procedure TFormTW.Wczytajdane1Click(Sender: TObject);
 var res: integer;
 begin
   if OpenDialog1.Execute then
@@ -983,9 +985,9 @@ begin
 end; { Wczytajdane1Click }
 
 {$IFDEF WINCE}
-procedure TForm1.WriteColor(s: string; size: integer; xcolor: TColor; ed: TMemo);
+procedure TFormTW.WriteColor(s: string; size: integer; xcolor: TColor; ed: TMemo);
 {$ELSE}
-procedure TForm1.WriteColor(s: string; size: integer; xcolor: TColor; ed: TRichMemo);
+procedure TFormTW.WriteColor(s: string; size: integer; xcolor: TColor; ed: TRichMemo);
 {$ENDIF}
 begin
   if assigned(ed) then
@@ -1023,7 +1025,7 @@ begin
   SendMessage(ARichEdit.handle, EM_FORMATRANGE, 0, 0);
 end; { PrintToCanvas }
 
-procedure TForm1.PaintAndSaveToBmp;
+procedure TFormTW.PaintAndSaveToBmp;
 var bmp: TBitmap;
 begin
   if ile > 4 then
@@ -1053,7 +1055,7 @@ begin
   bmp.Free;
 end; { PaintAndSaveToBmp }
 
-procedure TForm1.PaintAndSaveToJpg;
+procedure TFormTW.PaintAndSaveToJpg;
 var bmp: TBitmap;
     jpg: TJpegImage;
 begin
@@ -1087,7 +1089,7 @@ begin
   jpg.Free;
 end; { PaintAndSaveToJpg }
 
-procedure TForm1.PaintAndSaveToPng;
+procedure TFormTW.PaintAndSaveToPng;
 var bmp: TBitmap;
     png: TPortableNetworkGraphic;  //png: tpngobject;
 begin
@@ -1123,7 +1125,7 @@ end; { PaintAndSaveToPng }
 
 {$ENDIF}
 
-function TForm1.LoadXML(FileName: string): integer;
+function TFormTW.LoadXML(FileName: string): integer;
 var FXML: TXMLDocument;
     n, i, cnt: integer;
     s: string;
