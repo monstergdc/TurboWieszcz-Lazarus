@@ -24,7 +24,7 @@
       <MajorVersionNr Value="2"/>
       <RevisionNr Value="2"/>
       <BuildNr Value="5"/>
-      <StringTable CompanyName="Noniewicz.com" FileDescription="TurboWieszcz++ Generator Poezji" LegalCopyright="(c)2011-018 Noniewicz.com" OriginalFilename="TurboWieszcz.exe" ProductName="TurboWieszcz++"/>
+      <StringTable CompanyName="Noniewicz.com" FileDescription="TurboWieszcz++ Generator Poezji" LegalCopyright="(c)2011-2020 Noniewicz.com" OriginalFilename="TurboWieszcz.exe" ProductName="TurboWieszcz++"/>
     </VersionInfo>
     <MacroValues Count="1">
       <Macro1 Name="LCLWidgetType" Value="win32"/>
