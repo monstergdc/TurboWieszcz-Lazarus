@@ -3,8 +3,8 @@
 {$mode objfpc}{$H+}
 
 ///////////////////////////////////////////////////////////////////////////////
-// TurboWieszcz++ for Windows/Linux/WinCE/RaspberryPI/Darwin (PL), v2.0.2.5 Lazarus
-// (c)2011-2020 Noniewicz.com, Jakub Noniewicz aka MoNsTeR/GDC
+// TurboWieszcz++ for Windows/Linux/WinCE/RaspberryPI/Darwin (PL), v2.0.2.6 Lazarus
+// (c)2011-2022 Noniewicz.com, Jakub Noniewicz aka MoNsTeR/GDC
 // FREEWARE
 // last FPC used: 3.0.4 (Win), 3.0.0 (Linux Debian), 2.6.4 (Raspberry PI)
 // 3.0.0 (winCE), ? (Darwin)
@@ -53,6 +53,8 @@
 //update: 20180411 0000-0045 = 45
 //---
 //update: 20201127 2245-2325 = 40 (Darwin try #1)
+//---
+//update: 20220513 1135-1136 = 1
 
 //note: old custom opts (after conversion) were:
 //-dBorland -dVer150 -dDelphi7 -dCompiler6_Up -dPUREPASCAL
@@ -455,11 +457,11 @@ begin
   s := '';
 //  s := s + 'Darmowy Generator Wierszy,'+CRLF+
   s := s + 'Generator poezji (FREEWARE),'+CRLF+
-           'wersja Lazarus dla Windows/Linux/RaspberryPI/WinCE, v2.0.2.5'+CRLF+
+           'wersja Lazarus dla Windows/Linux/RaspberryPI/WinCE, v2.0.2.6'+CRLF+
            'Platforma: ' + {$i %FPCTARGETOS%} + '/' + {$i %FPCTARGETCPU%} +
            ', FPC: ' + {$I %FPCVERSION%}+ CRLF+
            ''+CRLF+
-           '(c)2011-2020 Noniewicz.com, Jakub Noniewicz aka MoNsTeR/GDC'+CRLF;
+           '(c)2011-2022 Noniewicz.com, Jakub Noniewicz aka MoNsTeR/GDC'+CRLF;
   s := s + 'http://www.noniewicz.com/'+CRLF;
   s := s + 'Dodatkowe strofy (c): Grych, Freeak, Monster, Fred i Marek Pampuch.'+CRLF;
   s := s + ''+CRLF;
@@ -593,7 +595,7 @@ begin
        data[0][28] := 'Gdy nie każdego stać na browary';
        data[0][29] := 'Pożarł Hilary swe okulary';
        data[0][30] := 'Spowiły nas trujące opary';
-       data[0][31] := 'To nie jest calka ani logarytm';
+       data[0][31] := 'To nie jest całka ani logarytm';
 
 //zx - unused here       
 //       data[0][?] := 'Smutno patrzysz na puste bazary';
